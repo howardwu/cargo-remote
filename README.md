@@ -83,10 +83,15 @@ which is sometimes necessary.
 
 To execute a Cargo command remotely, run:
 ```bash
-cargo remote {YOUR NORMAL CARGO COMMAND}
+cargo remote -- {YOUR NORMAL CARGO COMMAND}
 ```
 
 For example, if you want to `cargo build`, run:
+```bash
+cargo remote -- build
+```
+
+Or, for `cargo build` (or `cargo test`), just run:
 ```bash
 cargo remote build
 ```
