@@ -64,27 +64,31 @@ source $HOME/.cargo/env
 1. To inform `cargo-remote` about your remote server, run:
 ```bash
 mkdir ~/.config/cargo-remote
-touch ~/.config/cargo-remote/.cargo-remote.toml
+touch ~/.config/cargo-remote/cargo-remote.toml
 ```
 
-2. In your `.cargo-remote.toml` file, add the following line:
+2. In your `cargo-remote.toml` file, add the following line:
 ```toml
 remote={USER}@{IP_ADDRESS}
+hidden = true
 ```
 
-Note: you can alternatively place the `.cargo-remote.toml` at the root of your crate
+Note: you can alternatively place the `.cargo-remote.toml` (with a different name) at the root of your crate
 if you don't want it to be global.
+
+Setting `hidden = true` makes sure that cargo-remote also copies those files/directories starting with ".", 
+which is sometimes necessary.
 
 ## Usage
 
 To execute a Cargo command remotely, run:
 ```bash
-cargo remote -r {INSTANCE_NAME} -- {YOUR NORMAL CARGO COMMAND}
+cargo remote {YOUR NORMAL CARGO COMMAND}
 ```
 
 For example, if you want to `cargo build`, run:
 ```bash
-cargo remote -r {INSTANCE_NAME} -- build
+cargo remote build
 ```
 
 ### Flags & Options
